@@ -1,0 +1,25 @@
+{
+  "Files": [
+    {
+      "Id": "d:\\Kevin\\C# Projects\\RogersPizza\\wwwroot\\index.html",
+      "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.RogersPizza.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.RogersPizza.props",
+      "PackagePath": "build\\RogersPizza.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.RogersPizza.props",
+      "PackagePath": "buildMultiTargeting\\RogersPizza.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.RogersPizza.props",
+      "PackagePath": "buildTransitive\\RogersPizza.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

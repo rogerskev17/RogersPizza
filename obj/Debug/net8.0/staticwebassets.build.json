@@ -1,0 +1,39 @@
+{
+  "Version": 1,
+  "Hash": "pHXYjzkxmuhXf8LBlnoiQQ8BW97iOJj0I+rX/kdJeEA=",
+  "Source": "RogersPizza",
+  "BasePath": "_content/RogersPizza",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "RogersPizza\\wwwroot",
+      "Source": "RogersPizza",
+      "ContentRoot": "d:\\Kevin\\C# Projects\\RogersPizza\\wwwroot\\",
+      "BasePath": "_content/RogersPizza",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "d:\\Kevin\\C# Projects\\RogersPizza\\wwwroot\\index.html",
+      "SourceId": "RogersPizza",
+      "SourceType": "Discovered",
+      "ContentRoot": "d:\\Kevin\\C# Projects\\RogersPizza\\wwwroot\\",
+      "BasePath": "_content/RogersPizza",
+      "RelativePath": "index.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\index.html"
+    }
+  ]
+}
