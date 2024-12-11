@@ -1,3 +1,0 @@
-old/
-/docker-compose.yml
-/Dockerfile
