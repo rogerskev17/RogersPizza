@@ -32,3 +32,4 @@ D:\Kevin\C# Projects\RogersPizza\obj\Debug\net8.0\RogersPizza.pdb
 D:\Kevin\C# Projects\RogersPizza\obj\Debug\net8.0\RogersPizza.genruntimeconfig.cache
 D:\Kevin\C# Projects\RogersPizza\obj\Debug\net8.0\ref\RogersPizza.dll
 d:\Kevin\C# Projects\RogersPizza\bin\Debug\net8.0\RogersPizza.staticwebassets.runtime.json
+d:\Kevin\C# Projects\RogersPizza\obj\Debug\net8.0\RogersPizza.sourcelink.json

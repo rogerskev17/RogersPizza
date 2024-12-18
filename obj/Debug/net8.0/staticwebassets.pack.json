@@ -1,8 +1,32 @@
 {
   "Files": [
     {
+      "Id": "d:\\Kevin\\C# Projects\\RogersPizza\\wwwroot\\about.html",
+      "PackagePath": "staticwebassets\\about.html"
+    },
+    {
+      "Id": "d:\\Kevin\\C# Projects\\RogersPizza\\wwwroot\\contact.html",
+      "PackagePath": "staticwebassets\\contact.html"
+    },
+    {
+      "Id": "d:\\Kevin\\C# Projects\\RogersPizza\\wwwroot\\employees.html",
+      "PackagePath": "staticwebassets\\employees.html"
+    },
+    {
       "Id": "d:\\Kevin\\C# Projects\\RogersPizza\\wwwroot\\index.html",
       "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "d:\\Kevin\\C# Projects\\RogersPizza\\wwwroot\\menu.html",
+      "PackagePath": "staticwebassets\\menu.html"
+    },
+    {
+      "Id": "d:\\Kevin\\C# Projects\\RogersPizza\\wwwroot\\order.html",
+      "PackagePath": "staticwebassets\\order.html"
+    },
+    {
+      "Id": "d:\\Kevin\\C# Projects\\RogersPizza\\wwwroot\\styles.css",
+      "PackagePath": "staticwebassets\\styles.css"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.RogersPizza.Microsoft.AspNetCore.StaticWebAssets.props",
