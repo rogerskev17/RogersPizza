@@ -1,7 +1,17 @@
+using RogersPizza.Data;
+using Microsoft.EntityFrameworkCore;
+
 //initialize application
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddEndpointsApiExplorer();
 var app = builder.Build();
+app.UseExceptionHandler();
+builder.Services.AddEndpointsApiExplorer();
+
+//configure database
+builder.Services.AddScoped<DbContext, StoreContext>();
+builder.Services.AddControllersWithViews();
+app.UseRouting();
+app.MapControllers();
 
 //set startup page
 DefaultFilesOptions defaultFilesOptions = new DefaultFilesOptions();
