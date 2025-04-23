@@ -11,8 +11,8 @@ namespace RogersPizza.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=Test;ConnectRetryCount=0");
-            // base.OnConfiguring(optionsBuilder);
+            base.OnConfiguring(optionsBuilder);
+            optionsBuilder.EnableSensitiveDataLogging();
         }
 
         //tables
@@ -20,7 +20,7 @@ namespace RogersPizza.Data
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            builder.Entity<Pizza>().ToTable("Pizzas");
+            builder.Entity<Pizza>().ToTable("Pizza");
         }
     }
 }
