@@ -1,3 +1,12 @@
 body{
-    background-color: green;
-};
+    background-color: forestgreen;
+    color: #ff8f00;
+}
+
+a:link {
+    color: #fcc200;
+}
+
+a:visited {
+    color:darkred;
+}

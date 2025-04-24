@@ -1,14 +1,14 @@
 namespace RogersPizza.Models;
 
 public class Pizza {
-    public int ID { get; set;}
-    public string Name { get; set;}
-    public string Size;
-    public List<string> Crust;
-    public List<string> Sauce;
-    public List<string> Cheese;
-    public List<string> Toppings;
-    public string Bake;
-    public List<string> Extras;
-    public decimal Price; 
+    public required int ID { get; set; }
+    public required string Name { get; set; }
+    public string? Size { get; set; } 
+    public List<string>? Crust { get; set; }
+    public List<string>? Sauce { get; set; }
+    public List<string>? Cheese { get; set; }
+    public List<string>? Toppings { get; set; }
+    public string? Bake { get; set; }
+    public List<string>? Extras { get; set; }
+    public decimal? Price { get; set; } 
 }
