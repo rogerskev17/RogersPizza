@@ -1,4 +1,5 @@
 @page
+@model RogersPizza.Pages.OrderModel
 @{
     Layout = "Shared/_Layout.cshtml";
 }
@@ -6,7 +7,7 @@
     <title>Order</title>    
 }
 @section siteMenu {
-    <div name="Site Menu"></div>
+    <div name="Site Menu">
         <table width="100%">
             <tr>
                 <th><a href="Index">Rogers Pizza</a></th>
@@ -17,5 +18,20 @@
                 <th><a href="Employees">Employees</a></th>
             </tr>
         </table>
+    </div>
+    <div name="Order UI">
+        <form>
+        <label align="center">Choose your pizza</label>
+        <select name="pizzas" id="pizzas" align="center" required>
+            @foreach(var item in Model.Pizzas)
+            {
+                <option>@Html.DisplayFor(modelItem => item.Name)</option>
+            }
+        </select>
+
+        
+        <input type="submit" value="Place Order" />
+        </form>
+
     </div>
 }

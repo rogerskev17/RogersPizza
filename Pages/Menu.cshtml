@@ -8,7 +8,7 @@
     <title>Menu</title>    
 }
 @section siteMenu {
-    <div name="Site Menu"></div>
+    <div name="Site Menu">
         <table width="100%">
             <tr>
                 <th><a href="Index">Rogers Pizza</a></th>
@@ -18,6 +18,33 @@
                 <th><a href="Contact">Contact</a></th>
                 <th><a href="Employees">Employees</a></th>
             </tr>
+        </table>
+    </div>
+    <div name="Menu">
+        <table align="center">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Pizzas[0].Name)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Pizzas[0].Price)
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Pizzas)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Price)
+                        </td>
+                    </tr>
+                }
+            </tbody>
         </table>
     </div>
 }
