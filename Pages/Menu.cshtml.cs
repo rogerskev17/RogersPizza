@@ -15,7 +15,7 @@ namespace RogersPizza.Pages
             _context = context;
         }
 
-        public IList<Pizza> Pizzas { get; set; }
+        public IList<Pizza>? Pizzas { get; set; }
         public async Task OnGetAsync()
         {
             Pizzas = await _context.Pizzas.ToListAsync();

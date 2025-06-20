@@ -6,6 +6,9 @@
 @section title {
     <title>Order</title>    
 }
+@section scripts {
+    
+}
 @section siteMenu {
     <div name="Site Menu">
         <table width="100%">
@@ -19,7 +22,11 @@
             </tr>
         </table>
     </div>
-    <div name="Order UI">
+    
+}
+
+@section body {
+    <div name="Order UI"></div>
         <form>
         <label align="center">Choose your pizza</label>
         <select name="pizzas" id="pizzas" align="center" required>
@@ -28,10 +35,9 @@
                 <option>@Html.DisplayFor(modelItem => item.Name)</option>
             }
         </select>
-
-        
+        <div id= "payment-options"></div>
+        <script src="~/js/paymentOptionsBundled.js"></script>
         <input type="submit" value="Place Order" />
-        </form>
-
+        </form>        
     </div>
 }

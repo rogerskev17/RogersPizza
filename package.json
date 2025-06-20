@@ -1,15 +1,38 @@
 {
   "dependencies": {
-    "@babel/preset-env": "^7.26.9",
-    "@babel/preset-react": "^7.26.3",
-    "babel-core": "^4.7.16",
+    "@babel/polyfill": "^7.0.0",
     "babel-loader": "^10.0.0",
-    "babel-polyfill": "^6.26.0",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "babel-preset-react-app": "^3.1.2",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
   },
   "devDependencies": {
-    "webpack": "^5.98.0",
+    "@babel/cli": "^7.27.2",
+    "@babel/core": "^7.27.4",
+    "@babel/preset-env": "^7.27.2",
+    "@babel/preset-react": "^7.27.1",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "webpack": "^5.99.9",
     "webpack-cli": "^6.0.1"
-  }
+  },
+  "name": "rogerspizza",
+  "version": "1.0.0",
+  "description": "Code for a fictional pizza place",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build" : "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rogerskev17/RogersPizza.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rogerskev17/RogersPizza/issues"
+  },
+  "homepage": "https://github.com/rogerskev17/RogersPizza#readme"
 }
