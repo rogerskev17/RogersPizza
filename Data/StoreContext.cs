@@ -17,10 +17,14 @@ namespace RogersPizza.Data
 
         //tables
         public DbSet<Pizza> Pizzas { get; set; }
-
+        public DbSet<Order> Orders{ get; set; }
+        public DbSet<GiftCard> GiftCards { get; set; }
+        
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.Entity<Pizza>().ToTable("Pizza");
+            builder.Entity<Order>().ToTable("Order");
+            builder.Entity<GiftCard>().ToTable("Gift Card");
         }
     }
 }
