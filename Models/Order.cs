@@ -7,6 +7,9 @@ namespace RogersPizza.Models
         public int? ID { get; set; }
 
         [Required]
+        public required string Name { get; set; }
+
+        [Required]
         public required string Pizza { get; set; }
 
         [Required]

@@ -30,6 +30,8 @@
         <form method="post" asp-antiforgery="true">
         @Html.AntiForgeryToken()
         <partial name="_ValidationScriptsPartial" />
+        <p>What is your name?</p>
+        <input name="Order.Name" pattern="[a-zA-z]+" required />
         <p>Choose your pizza</p>
         <select asp-for="Order.Pizza" name="Order.Pizza" id="pizzas" required>
             @foreach(var item in Model?.Pizzas)

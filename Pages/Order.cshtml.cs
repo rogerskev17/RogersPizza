@@ -6,6 +6,7 @@ using RogersPizza.Models;
 
 namespace RogersPizza.Pages
 {
+    
     [ValidateAntiForgeryToken]
     public class OrderModel : PageModel
     {
@@ -28,7 +29,7 @@ namespace RogersPizza.Pages
         public IActionResult OnPost()
         {
             _logger.LogInformation(
-                "Received order: Pizza={Order.Pizza}, Payment={Order.PaymentOption}, GiftCard={Order.GiftCardNumber}, ID={Order.ID}",
+                "Received order: Name= {Order.Name}, Pizza={Order.Pizza}, Payment={Order.PaymentOption}, GiftCard={Order.GiftCardNumber}, ID={Order.ID}", Order.Name,
                 Order.Pizza, Order.PaymentOption, Order.GiftCardNumber, Order.ID);
             return RedirectToPage("/Index");
         }
