@@ -5,7 +5,7 @@
     Layout = "Shared/_Layout.cshtml";
 }
 @section title {
-    <title>Menu</title>    
+    <title>Menu</title>
 }
 @section siteMenu {
     <div name="Site Menu">
@@ -22,27 +22,33 @@
     </div>
     <div name="Menu">
         <table align="center">
-            <thead>
-                <tr>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Pizzas[0].Name)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Pizzas[0].Price)
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model.Pizzas)
-                {
+            @if (Model.Pizzas != null && Model.Pizzas.Count > 0)
+            {
+                <thead>
                     <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Name)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Price)
-                        </td>
+                        <th>
+                            @Html.DisplayNameFor(model => Model.Pizzas[0].Name)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => Model.Pizzas[0].Price)
+                        </th>
                     </tr>
+                </thead>
+            }
+            <tbody>
+                @if (Model.Pizzas != null)
+                {
+                    @foreach (var item in Model.Pizzas)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Price)
+                            </td>
+                        </tr>
+                    }
                 }
             </tbody>
         </table>

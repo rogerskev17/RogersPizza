@@ -1,4 +1,7 @@
-ignored/
-node_modules
-bin/
+/ignored/
+/node_modules
+/bin/
 /obj/
+/RogersPizza.db
+/RogersPizza.db-shm
+/RogersPizza.db-wal

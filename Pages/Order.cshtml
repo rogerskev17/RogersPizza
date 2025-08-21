@@ -27,21 +27,25 @@
 
 @section body {
     <div name="Order UI">
+        @*Order form with antiforgery token*@
         <form method="post" asp-antiforgery="true">
         @Html.AntiForgeryToken()
         <partial name="_ValidationScriptsPartial" />
         <p>What is your name?</p>
-        <input name="Order.Name" pattern="[a-zA-z]+" required />
-        <p>Choose your pizza</p>
-        <select asp-for="Order.Pizza" name="Order.Pizza" id="pizzas" required>
-            @foreach(var item in Model?.Pizzas)
+        <input name="Order.Name" pattern="[a-zA-z\s]+" placeholder="Letters and spaces only" required />
+        <p>Choose your pizza.</p>
+        <select asp-for="Pizzas" name="Order.Pizza" id="pizzas" required>        
+        @if(Model.Pizzas != null)
+        {
+            @foreach(var item in Model.Pizzas)
             {
-                <option value="@item.Name">@item.Name</option>
+                <option value="@item.Name">@item.Name&nbsp;&nbsp;$@item.Price</option>
             }
+        }
         </select>
+        @*Display payment options with useState and useEffect*@
         <div id= "payment-options"></div>
-        <script src="~/js/paymentOptionsBundled.js"></script>
-        <input type="hidden" asp-for="Order.ID" name="Order.ID" value="999">
+        <script src="~/js/paymentOptionsBundled.js"></script>        
         <input type="submit" value="Place Order" />
         </form>        
     </div>

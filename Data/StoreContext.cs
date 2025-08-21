@@ -24,7 +24,7 @@ namespace RogersPizza.Data
         {
             builder.Entity<Pizza>().ToTable("Pizza");
             builder.Entity<Order>().ToTable("Order");
-            builder.Entity<GiftCard>().ToTable("Gift Card");
+            builder.Entity<GiftCard>().ToTable("GiftCard");
         }
     }
 }

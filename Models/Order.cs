@@ -4,6 +4,7 @@ namespace RogersPizza.Models
 {
     public class Order
     {
+        [Key]
         public int? ID { get; set; }
 
         [Required]
@@ -14,6 +15,7 @@ namespace RogersPizza.Models
 
         [Required]
         public required string PaymentOption { get; set; }
+
         public string? GiftCardNumber { get; set; }
     }
 }

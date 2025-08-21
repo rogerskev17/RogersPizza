@@ -10,5 +10,5 @@ public class Pizza {
     public List<string>? Toppings { get; set; }
     public string? Bake { get; set; }
     public List<string>? Extras { get; set; }
-    public decimal? Price { get; set; } 
+    public decimal Price { get; set; } 
 }

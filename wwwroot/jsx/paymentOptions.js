@@ -29,7 +29,7 @@ export default function PaymentOptions() {
     return (
         <div>
             <div name="selectPaymentMethod">
-                <p>Please select a payment method</p>
+                <p>Please select a payment method.</p>
             </div>
 
             <select name="Order.PaymentOption" value={paymentOption} onChange={handlePaymentMethodChange}>
@@ -40,7 +40,7 @@ export default function PaymentOptions() {
             {paymentOption === "cash" &&
                 <div name="cash">
                     <p>Please have your cash ready when receiving your order.</p>
-                    <input type="hidden" name="Order.GiftCardNumber" value ="9999999999999999"/>
+                    {/*<input type="hidden" name="Order.GiftCardNumber" value ="9999999999999999"/>*/}
                 </div>
                 
             }
