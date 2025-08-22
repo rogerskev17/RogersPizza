@@ -45,7 +45,7 @@ namespace RogersPizza.Pages
             {
                 //To Do: Add Order to Database
                 AddOrder();
-                return RedirectToPage("/Index");
+                return RedirectToPage("/Confirmation");
             }
             else
             {

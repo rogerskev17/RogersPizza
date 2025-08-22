@@ -20,37 +20,39 @@
             </tr>
         </table>
     </div>
-    <div name="Menu">
-        <table align="center">
-            @if (Model.Pizzas != null && Model.Pizzas.Count > 0)
+}
+@section body {
+    <div name="Menu"></div>
+    <table align="center">
+        @if (Model.Pizzas != null && Model.Pizzas.Count > 0)
+        {
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => Model.Pizzas[0].Name)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => Model.Pizzas[0].Price)
+                    </th>
+                </tr>
+            </thead>
+        }
+        <tbody>
+            @if (Model.Pizzas != null)
             {
-                <thead>
-                    <tr>
-                        <th>
-                            @Html.DisplayNameFor(model => Model.Pizzas[0].Name)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => Model.Pizzas[0].Price)
-                        </th>
-                    </tr>
-                </thead>
-            }
-            <tbody>
-                @if (Model.Pizzas != null)
+                @foreach (var item in Model.Pizzas)
                 {
-                    @foreach (var item in Model.Pizzas)
-                    {
-                        <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Name)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Price)
-                            </td>
-                        </tr>
-                    }
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Price)
+                        </td>
+                    </tr>
                 }
-            </tbody>
-        </table>
+            }
+        </tbody>
+    </table>
     </div>
 }
