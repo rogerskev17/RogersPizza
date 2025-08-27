@@ -1,4 +1,5 @@
 @page
+@model RogersPizza.Pages.ConfirmationModel
 @{
     Layout = "Shared/_Layout.cshtml";
 }
@@ -21,4 +22,10 @@
 }
 @section body {
     <h1>Your order has been placed.</h1>
+    <p>Please come to our store to pick up your pizza.</p>
+    @if(Model.cashToBring > 0)
+    {
+        <p>Also, be sure to bring your remaining unpaid balance of <b>$@Model.cashToBring</b>.</p>
+    }
+    <p>We look forward to seeing you soon when you arrive!</p>
 }

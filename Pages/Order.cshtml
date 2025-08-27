@@ -4,10 +4,10 @@
     Layout = "Shared/_Layout.cshtml";
 }
 @section title {
-    <title>Order</title>    
+    <title>Order</title>
 }
 @section scripts {
-    
+
 }
 @section siteMenu {
     <div name="Site Menu">
@@ -22,31 +22,40 @@
             </tr>
         </table>
     </div>
-    
+
 }
 
 @section body {
     <div name="Order UI">
         @*Order form with antiforgery token*@
         <form method="post" asp-antiforgery="true">
-        @Html.AntiForgeryToken()
-        <partial name="_ValidationScriptsPartial" />
-        <p>What is your name?</p>
-        <input name="Order.Name" pattern="[a-zA-z\s]+" placeholder="Letters and spaces only" required />
-        <p>Choose your pizza.</p>
-        <select asp-for="Pizzas" name="Order.Pizza" id="pizzas" required>        
-        @if(Model.Pizzas != null)
-        {
-            @foreach(var item in Model.Pizzas)
+            @Html.AntiForgeryToken()
+            <partial name="_ValidationScriptsPartial" />
+            <p>What is your name?</p>
+            <input name="Order.Name" pattern="[a-zA-z\s]+" placeholder="Letters and spaces only" required />
+            <p>Choose your pizza.</p>
+            <select asp-for="Pizzas" name="Order.Pizza" id="pizzas" required>
+                @if (Model.Pizzas != null)
+                {
+                    @foreach (var item in Model.Pizzas)
+                    {
+                        <option value="@item.Name">@item.Name&nbsp;&nbsp;$@item.Price</option>
+                    }
+                }
+            </select>
+            @*Display payment options with useState and useEffect*@
+            <div id="payment-options"></div>
+
+            @if (!ModelState.IsValid && ModelState.ContainsKey("Order.GiftCardNumber"))
             {
-                <option value="@item.Name">@item.Name&nbsp;&nbsp;$@item.Price</option>
+                var error = ModelState["Order.GiftCardNumber"]?.Errors.FirstOrDefault()?.ErrorMessage;
+                if (!string.IsNullOrEmpty(error))
+                {
+                    <div class="error-message">@error</div>
+                }
             }
-        }
-        </select>
-        @*Display payment options with useState and useEffect*@
-        <div id= "payment-options"></div>
-        <script src="~/js/paymentOptionsBundled.js"></script>        
-        <input type="submit" value="Place Order" />
-        </form>        
+            <script src="~/js/paymentOptionsBundled.js"></script>
+            <input type="submit" value="Place Order" />
+        </form>
     </div>
 }

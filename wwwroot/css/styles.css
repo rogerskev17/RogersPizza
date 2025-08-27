@@ -10,3 +10,8 @@ a:link {
 a:visited {
     color:darkred;
 }
+
+.error-message {
+    color: red !important;
+    font-weight: bold !important;
+}

@@ -18,6 +18,7 @@ namespace RogersPizza.Pages
 
         [BindProperty]
         public Order? Order { get; set; }
+        decimal remainingBalance;
 
         public OrderModel(RogersPizza.Data.StoreContext context, ILogger<OrderModel> logger)
         {
@@ -40,12 +41,13 @@ namespace RogersPizza.Pages
             _logger.LogInformation(
                 "Received order: Name= {Order.Name}, Pizza={Order.Pizza}, Payment={Order.PaymentOption}, GiftCard={Order.GiftCardNumber}, ID={Order.ID}", Order?.Name,
                 Order?.Pizza, Order?.PaymentOption, Order?.GiftCardNumber, Order?.ID);
+
             bool isValidOrder = ValidateOrder();
+
             if (isValidOrder)
             {
-                //To Do: Add Order to Database
                 AddOrder();
-                return RedirectToPage("/Confirmation");
+                return RedirectToPage("/Confirmation", "OrderPlaced", new { cashNeeded = remainingBalance });
             }
             else
             {
@@ -56,36 +58,35 @@ namespace RogersPizza.Pages
 
         private bool ValidateOrder()
         {
+            decimal pizzaPrice = _context.Pizzas.Where(p => p.Name == Order!.Pizza).Select(p => p.Price).Single();
+            _logger.LogInformation("pizzaPrice: " + pizzaPrice);
+
             if (Order?.PaymentOption == "giftCard")
             {
+                _logger.LogInformation("PaymentOption: giftCard");
                 _logger.LogInformation("Checking DB existence of Order.GiftCardNumber: " + Order.GiftCardNumber);
                 bool isValidNumber = _context.GiftCards.Any(n => n.GiftCardNumber == Order.GiftCardNumber);
                 _logger.LogInformation("isValidNumber: " + isValidNumber);
                 if (!isValidNumber)
                 {
                     _logger.LogInformation("Gift card number not found");
+                    ModelState.AddModelError("Order.GiftCardNumber", "The gift card number you have entered is invalid.");
                     return false;
                 }
 
                 _logger.LogInformation("Checking balance");
-                decimal giftCardbalance = _context.GiftCards.Where(n => n.GiftCardNumber == Order.GiftCardNumber).Select(b => b.GiftCardBalance).Single();
-                _logger.LogInformation("balance: " + giftCardbalance);
-                decimal pizzaPrice = _context.Pizzas.Where(p => p.Name == Order.Pizza).Select(p => p.Price).Single();
-                _logger.LogInformation("pizzaPrice: " + pizzaPrice);
+                decimal giftCardBalance = _context.GiftCards.Where(n => n.GiftCardNumber == Order.GiftCardNumber).Select(b => b.GiftCardBalance).Single();
+                _logger.LogInformation("giftCardBalance: " + giftCardBalance);
 
                 _logger.LogInformation("Checking remaining balance");
-                decimal remainingBalance = pizzaPrice - giftCardbalance;
+                remainingBalance = pizzaPrice - giftCardBalance;
                 _logger.LogInformation("remainingBalance: " + remainingBalance);
 
-                // bool isCashNeeded = false;
                 if (remainingBalance > 0)
                 {
-                    // isCashNeeded = true;
                     GiftCard usedUpCard = _context.GiftCards.Single(g => g.GiftCardNumber == Order.GiftCardNumber);
                     _context.GiftCards.Remove(usedUpCard);
                     _context.SaveChanges();
-
-                    //To Do: Inform customer of remaining balance they have to pay in cash
                 }
                 else
                 {
@@ -93,6 +94,11 @@ namespace RogersPizza.Pages
                     usedCard.GiftCardBalance = -remainingBalance;
                     _context.SaveChanges();
                 }
+            }
+            else if (Order?.PaymentOption == "cash")
+            {
+                _logger.LogInformation("PaymentOption: cash");
+                remainingBalance = pizzaPrice;
             }
 
             return true;
